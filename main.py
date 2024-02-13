@@ -1,4 +1,12 @@
-def getClassName():
-	return "This is MLOps SE Class, This is final year students"
+class Wallet:
+	def __init__(self, amount):
+		self.amount = amount
 
-print(getClassName())
+	def getAmount():
+		return self.amount = amount
+
+	def withdraw(self, amount):
+		self.amount = self.amount - amount
+
+	def deposit(self, amount):
+		self.amount = self.amount + amount
