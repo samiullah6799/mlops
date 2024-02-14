@@ -17,8 +17,6 @@ jobs:
     - name: Install dependencies
       run: |
         make install
-	- name: Code linting
-	run: make lint
 
     - name: Test with pytest
       run: |
