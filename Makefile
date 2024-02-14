@@ -4,3 +4,5 @@ install:
 test:
 	pytest test.py
 
+pylint:
+	pylint main.py
