@@ -10,3 +10,6 @@ def test_deposit():
 
 def test_withdraw():
 	assert wallet.withdraw(2000) == 2000
+
+def test_getName():
+	assert wallet.getName() == "This is Wallet Class"
