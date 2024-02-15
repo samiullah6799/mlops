@@ -13,5 +13,5 @@ class Wallet:
 		self.amount = self.amount + amount
 		return self.amount
 	
-	def getName():
+	def getName(self):
 		return "This is Wallet Class"
