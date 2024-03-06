@@ -22,13 +22,18 @@ pipeline {
         stage('Deploy') {
             script {
                 def branchName = "${env.BRANCH_NAME}"
+                deploy(branchName)
 
-                if (branchName == "main") {
-                    println("Deploying to Production")
-                } else if (branchName == "dev") {
-                    println("Deploying to UAT")
-                }
+                
             }
         }
+    }
+}
+
+def void deploy(String branchName) {
+    if (branchName == "main") {
+        println("Deploying to Production")
+    } else if (branchName == "dev") {
+        println("Deploying to UAT")
     }
 }
