@@ -1,35 +1,22 @@
 pipeline {
     agent any
     stages {
-        stage ('Checkout') {
+        stage ('Build') {
             steps {
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/samiullah6799/mlops.git']])
+                echo "This is Building"
             }
         }
 
-        stage ('Installing Dependencies') {
-            steps {
-                sh 'pip3 install -r requirements.txt'
-            }
-        }
 
-        stage ('Testing') {
+        stage ('Test') {
             steps {
-                sh 'pytest test.py'
+                echo "This is Testing."
             }
         }
 
         stage ('Deploy') {
-            script {
-                echo "This is Deployment"
-
-                def branchName = "${env.BRANCH_NAME}"
-
-                if (branchName == "main") {
-                    echo "Deploying to production"
-                } else if (branchName == "dev") {
-                    echo "Deploying to UAT."
-                }
+            steps {
+                echo "This Deploying."
             }
         }
     }
