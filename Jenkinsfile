@@ -33,8 +33,8 @@ pipeline {
 
 def void deploy(String branchName) {
     if (branchName == 'main') {
-                        echo "Deploying to production"
+                        println("Deploying to production")
                     } else if (brancheName == 'dev') {
-                        echo "Deploying to UAT."
+                        println("Deploying to UAT.")
                     }
 }
