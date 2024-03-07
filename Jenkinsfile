@@ -15,7 +15,7 @@ pipeline {
 
         stage ('Testing') {
             steps {
-                sh "pytest test.py"
+                sh "python3 test.py"
             }
         }
 
@@ -23,15 +23,18 @@ pipeline {
             steps {
                 script {
                     def branchName = "${env.BRANCH_NAME}"
-
-                    if (branchName == 'main') {
-                        echo "Deploying to production"
-                    } else if (brancheName == 'dev') {
-                        echo "Deploying to UAT."
-                    }
+                    deploy(branchName)
+                    
                 }
             }
         }
     }
 }
-//This is jenkinsfile
+
+def void deploy(String branchName) {
+    if (branchName == 'main') {
+                        echo "Deploying to production"
+                    } else if (brancheName == 'dev') {
+                        echo "Deploying to UAT."
+                    }
+}
